@@ -4,6 +4,14 @@
 
 - Implementing the user login and tweeting features for the twitter-clone project we did in the lesson.
 
+### Live Demo :
+
+- You can login the site with:
+  username: ipsum
+  password: jsbilenackalmaz
+
+https://twitter-clone-with-react.netlify.app/home
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
