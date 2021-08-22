@@ -8,7 +8,7 @@ import {
 import "bootstrap/dist/css/bootstrap.min.css";
 import { TheLayout } from "./container";
 import { Login } from "./view";
-import "./app.css";
+import "./App.css";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(
