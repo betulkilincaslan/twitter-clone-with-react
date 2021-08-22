@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { TheLayout } from "./container";
+import { Login } from "./view";
+import "./app.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    JSON.parse(localStorage.getItem("isLoggedIn"))
   );
-}
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/404">
+          <div>404</div>
+        </Route>
+        <Route exact path="/login">
+          <Login isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
+        </Route>
+        <Route path="/">
+          {!isLoggedIn ? <Redirect to="/login" /> : <TheLayout />}
+        </Route>
+      </Switch>
+    </Router>
+  );
+};
 
 export default App;

@@ -1,38 +1,579 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(21, 32, 43);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1280px;
+}
+
+.nav {
+  display: flex;
+}
+
+.nav__link {
+  width: 100%;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 4px 0;
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  text-decoration: none;
+  color: rgb(75, 132, 196);
+}
+
+.nav__link--active {
+  color: rgb(75, 132, 196) !important;
+}
+
+.nav__group {
+  padding: 9px;
+  display: inline-flex;
+  border-radius: 9999px;
+  align-items: center;
+}
+
+.nav__group span {
+  padding: 0 12px 0 10px;
+}
+
+.nav__group a {
+  color: #ffffff;
+  text-decoration: none !important;
+}
+
+.nav__logo {
+  padding: 9px;
+  display: inline-flex;
+  border-radius: 9999px;
+}
+
+.nav__link:hover .nav__logo {
+  background: rgba(29, 161, 242, 0.1);
+}
+
+.nav__link:hover .nav__logoSVG {
+  color: #fff;
+}
+
+.nav__link:hover .nav__group {
+  background: rgba(121, 75, 196, 0.1);
+}
+
+.nav__button {
+  padding-left: 26px;
+  padding-right: 26px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 9999px;
+  background-color: rgb(75, 132, 196);
+  box-shadow: rgba(0, 0, 0, 0.08) 0px 8px 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 43px;
+}
+
+.nav__link:hover .nav__button {
+  color: #ffffff;
+  background-color: rgb(102, 151, 207);
+}
+
+.rightSidebar {
+  padding-top: 9px;
+}
+
+.searchFieldContainer {
+  position: relative;
+  margin-bottom: 9px;
+  height: 37px;
+  display: flex;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  width: 100%;
+}
+
+.searchFieldContainer:focus-within {
+  border-color: rgb(75, 132, 196);
+}
+
+.searchFieldContainer:focus-within .searchFieldIcon {
+  color: rgb(75, 132, 196);
+}
+
+.searchFieldContainer:focus-within .searchField__autocomplete {
+  display: block;
+}
+
+.searchFieldIcon {
+  background-color: rgb(37, 51, 65);
+  border-radius: 9999px 0 0 9999px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0 0 14px;
+}
+
+.searchFieldIcon {
+  color: rgb(136, 153, 166);
+}
+
+.searchFieldContainer__input {
+  background-color: rgb(37, 51, 65);
+  border-radius: 0 9999px 9999px 0;
+  border: none;
+  outline-style: none;
+  width: 100%;
+  padding: 9px;
+  font-weight: 400;
+  line-height: 1.3125;
+  color: #fff;
+  font-size: 14px;
+  line-break: 16px;
+  order: 1;
+}
+
+.searchFieldContainer__input::placeholder {
+  color: rgb(136, 153, 166);
+  opacity: 1;
+}
+
+.searchFieldContainer__input:focus {
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.searchFieldContainer__input:focus ~ .searchFieldIcon {
+  background: rgba(0, 0, 0, 0);
+  order: 0;
+}
+
+.searchField__autocomplete {
+  display: none;
+  padding-top: 18px;
   text-align: center;
+  font-size: 14px;
+  color: rgb(136, 153, 166);
+  position: absolute;
+  left: 0;
+  top: 37px;
+  min-height: 100px;
+  max-height: calc(-49px + 80vh);
+  box-shadow: rgba(136, 153, 166, 0.2) 0px 0px 15px,
+      rgba(136, 153, 166, 0.15) 0px 0px 3px 1px;
+  background-color: rgb(21, 32, 43);
+  overflow-y: auto;
+  border-radius: 5px;
+  width: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.trends {
+  background: #192734;
+  margin-bottom: 14px;
+  border-radius: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.trends__title {
+  border-bottom: 1px solid rgb(56, 68, 77);
+  padding: 9px 14px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.trends__title h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
+
+.trends__list {
+  list-style-type: none;
+}
+
+.trends__item {
+  cursor: pointer;
+  padding: 9px 14px;
+  border-bottom: 1px solid rgb(56, 68, 77);
+}
+
+.trends__item:last-child {
+  border-bottom: none;
+  border-radius: 0 0 14px 14px;
+}
+
+.trends__item:hover {
+  background: rgba(107, 125, 140, 0.1);
+}
+
+.trends__link,
+.trends__link:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+.trends__info {
+  font-size: 12px;
+  color: rgb(136, 153, 166);
+  line-height: calc(18.375px);
+  font-weight: 400;
+}
+
+.trends__name {
+  font-size: 14px;
+  padding-top: 2px;
+  font-weight: bold;
+  width: 100%;
+  display: block;
+}
+
+.trends__tweets {
+  color: rgb(136, 153, 166);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.main {
+  background: rgb(21, 32, 43);
+  border-left: 1px solid rgb(56, 68, 77);
+  border-right: 1px solid rgb(56, 68, 77);
+}
+
+.latestTweets__title {
+  height: 49px;
+  border-bottom: 1px solid rgb(56, 68, 77);
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+}
+
+.latestTweets__title h2 {
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0;
+}
+
+.latestTweets__divisor {
+  height: 9px;
+  background-color: rgb(37, 51, 65);
+}
+
+.tweetField {
+  padding: 0 14px;
+  display: flex;
+  margin-top: 9px;
+}
+
+.tweetField__profilePic {
+  margin-right: 5px;
+  max-width: 46px;
+}
+
+.tweetField__inputContainer {
+  margin-bottom: 9px;
+  margin-left: 2px;
+  display: flex;
+  flex-grow: 7;
+  -moz-box-align: stretch;
+  -moz-box-direction: normal;
+  -moz-box-orient: vertical;
+  align-items: stretch;
+  border: 0px solid black;
+  box-sizing: border-box;
+  flex-basis: auto;
+  flex-direction: column;
+  flex-shrink: 0;
+  min-height: 0px;
+  min-width: 0px;
+  position: relative;
+  z-index: 0;
+}
+
+.tweetField__input {
+  max-width: 530px;
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  overflow-wrap: break-word;
+  padding: 9px 0;
+  min-height: 1.3125em;
+  max-height: 38.0625em;
+  outline: currentcolor none medium;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+.tweetField__input:focus {
+  outline: none;
+}
+
+.tweetField__options {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(21, 32, 43);
+  flex-wrap: wrap;
+}
+
+.tweetField__tools,
+.tweetField__submit {
+  margin-top: 9px;
+}
+
+.tweetField__tools {
+  margin-left: -9px;
+}
+
+.tweetField__items {
+  min-height: 37px;
+  min-width: 37px;
+  background: #0f0;
+  margin-right: 9px;
+  border-radius: 9999px;
+  background: none;
+  border: none;
+  color: rgb(75, 132, 196);
+}
+
+.tweetField__items:hover {
+  background: rgba(121, 75, 196, 0.1);
+}
+
+.tweetField__items:active {
+  background: rgba(121, 75, 196, 0.2);
+}
+
+.tweetField__submitButton {
+  background-color: rgb(75, 132, 196);
+  margin-left: 9px;
+  min-width: calc(59.57px);
+  min-height: 37px;
+  border-radius: 9999px;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 0 1em;
+}
+
+.tweetField__submitButton:hover {
+  background-color: rgb(112, 155, 205);
+}
+
+.tweetField__submitButton:active {
+  background-color: rgb(112, 155, 205);
+}
+
+.tweetsContainer {
+  padding: 9px 14px 0;
+  border-bottom: 1px solid rgb(56, 68, 77);
+}
+
+.tweetsContainer a {
+  color: #fff;
+  display: flex;
+}
+
+.tweetsContainer a:hover {
+  text-decoration: none;
+}
+
+.latestTweets__profilePic {
+  max-width: 46px;
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+.tweetsContainer__content {
+  padding-bottom: 9px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: 0 5px;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-grow: 7;
+}
+
+.tweetsContainer__name {
+  margin-bottom: 2px;
+  display: flex;
+}
+
+.tweetsContainer__retweetPic {
+  margin-right: 5px;
+}
+
+.tweetsContainer__retweetContent {
+  padding: 7px 6px 0;
+  margin-top: 9px;
+  border: 1px solid rgb(56, 68, 77);
+  border-radius: 14px;
+}
+
+.tweetsContainer__retweetContent .tweetsContainer {
+  border: none;
+  padding: 0;
+}
+
+.tweetsContainer__retweetTitle {
+  display: flex;
+  margin-bottom: 7px;
+}
+
+.tweetsContainer__retweetIcon {
+  max-width: 46px;
+  flex-grow: 1;
+  margin: 0 5px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.tweetsContainer__retweetBy {
+  flex-grow: 7px;
+  margin: 0 5px;
+}
+
+.tweetsContainer__retweetBy a {
+  color: rgb(136, 153, 166);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: calc(18.375px);
+}
+
+.tweetsContainer__retweetBy a:hover {
+  text-decoration: underline;
+}
+
+.tweetsContainer__name .name {
+  font-weight: bold;
+  color: #fff;
+  font-size: 14px;
+}
+
+.tweetsContainer__name .handle {
+  margin-left: 5px;
+}
+
+.tweetsContainer__name .spacer {
+  padding: 0 5px;
+}
+
+.tweetsContainer__name .handle,
+.tweetsContainer__name .spacer,
+.tweetsContainer__name .time {
+  color: rgb(136, 153, 166);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.tweetsContainer__text {
+  font-weight: 400;
+  font-size: 14px;
+  color: #fff;
+  overflow-wrap: break-word;
+  line-height: 1.3125;
+}
+
+.tweetsContainer__options {
+  display: flex;
+  max-width: 425px;
+  margin-top: 9px;
+  justify-content: space-between;
+}
+
+.tweetsContainer__items {
+  display: flex;
+}
+
+.tweetsContainer__items button {
+  background: none;
+  border: none;
+  color: rgb(136, 153, 166);
+}
+
+.tweetsContainer__items button.comment,
+.tweetsContainer__items button.retweet,
+.tweetsContainer__items button.heart,
+.tweetsContainer__items button.share {
+  border-radius: 9999px;
+  padding: 5px 7px;
+}
+
+.tweetsContainer__items button.comment:hover,
+.tweetsContainer__items button.share:hover {
+  background: rgba(29, 161, 242, 0.1);
+  color: rgb(29, 161, 242);
+}
+
+.tweetsContainer__items button.retweet:hover {
+  color: rgb(23, 191, 99);
+  background: rgba(23, 191, 99, 0.1);
+}
+
+.tweetsContainer__items button.heart:hover {
+  color: rgb(224, 36, 94);
+  background: rgba(224, 36, 94, 0.1);
+}
+.login-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-form{
+  border: 1px solid #E1E8ED;
+  border-radius: 10px;
+  padding: 50px;
+  width: 50vw;
+  margin: 0 auto;
+  color: grey;
+  text-align: center;
+  font-family: sans-serif;
+  font-size: 12px;
+}
+
+.login-form input{
+  margin-bottom: 10px;
+}
+
+.login-form ::-webkit-input-placeholder{
+  font-size: 14px;
+}
+
+.user-name-input,
+.password-input{
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid lightgrey;
+}
+
+.user-name-input:focus,
+.password-input:focus{
+  border: 1px solid #1DA1F2;
+  outline: none;
+}
+
+.login-submit-button{
+  width: 100%;
+  background: #1DA1F2;
+  padding: 10px;
   color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  border: none;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login-icon-wrapper {
+  margin-bottom: 20px;
 }
