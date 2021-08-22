@@ -7,7 +7,7 @@
 ### Live Demo :
 
 - You can login the site with:
-  username: ipsum
+  username: ipsum ;
   password: jsbilenackalmaz
 
 https://twitter-clone-with-react.netlify.app/home
